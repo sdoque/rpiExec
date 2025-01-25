@@ -2,6 +2,8 @@
 
 **Compiled Executables for the Raspberry Pi**
 
+The purpose of this repository is to facilitate testing the concepts presented with mbaigo.
+
 This repository contains **mbaigo systems** that have been cross-compiled for the Raspberry Pi. The Raspberry Pi was selected as the platform because it effectively demonstrates the potential of edge computing. Additionally, using a Raspberry Pi enhances security by isolating the system from personal computers. This reduces the risk of exposing sensitive data, prevents unauthorized access to personal files or applications, and limits the impact of potential vulnerabilities by confining operations to a dedicated, purpose-built device. The Raspberry Pi's small footprint and customizable environment further contribute to a secure and controlled deployment setup.
 
 ## Solution Deployment
@@ -40,6 +42,8 @@ The program must be started from the terminal (Command Line Interface) by typing
 ```
 
 The first time the program runs, it creates a `systemconfig.json` file. This file should be updated with the necessary configuration settings. On subsequent runs, the system starts and provides you with the address of its web server. You can access this address using a web browser to verify your setup.
+
+There are two scripts that start and stop respectively the systems to demonstrate a climate control solution. 
 
 ## Remote Operation
 If you are operating your Raspberry Pi remotely, you can use **ssh** to log in to the device. 
@@ -84,8 +88,8 @@ where  ```-S esr```Naming the window session as “esr” creates a new “windo
 
 To detach from this window while leaving it running and return to the terminal, one must first type ```[Ctrl + A]```Subsequently, type the desired text. ```D```To detach, one returns to the original terminal view. To list all the windows created, one types: ```screen -ls```To return to a specific window, one types the window’s title. ```screen -r esr```In the context of the assigned name of the desired window, denoted as *esr*,
 
----
-Annotations: 0,4451 SHA-256 0d0d08fa0e589ff10cd53abd2a68cda3  
-&Writing Tools: 3518,4 3524 3527,4 3552,83 3642,6 3656,19 3682,59 3791,9 3880,6 3909 3913 3921 3960,8 3991 4104,5 4136,36 4180 4189 4276 4294 4324 4335,20 4375,17 4432,19  
-@Jan van Deventer <van.deventer@me.com>: 2526 2537,10 3833 3860,2 3993 4019  
-...
+## Scripts
+It might get a bit annoying to start up all the systems, especially with screen. One can then use the two scripts found in the repository:
+- startClimateControl.sh
+- stopClimateControl.sh
+One must make sure that they have executable file permissions (i.e., chmod +x *filename*). The scripts require that one has the same file organization as the repository (and they can be modified to fit other needs). To be fully operational, one would also need a temperature sensor although that is not necessary to evaluate the concepts.
