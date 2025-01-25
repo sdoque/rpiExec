@@ -9,7 +9,7 @@ This repository contains **mbaigo systems** that have been cross-compiled for th
 - **Note**: Each system must be in its own directory.
 - **Note**: Each system must be executable.
 
-You can either clone the entire repository and then move each program to its own directory, or download each program individually and place it in its respective directory. For example, to download the `thermostat_rpi64` system:
+You can either [clone](#cloning-the-repository) the entire repository and then move each program to its own directory, or download each program individually and place it in its respective directory. For example, to download the `thermostat_rpi64` system:
 
 ```
 mkdir thermostat
@@ -42,7 +42,26 @@ The program must be started from the terminal (Command Line Interface) by typing
 The first time the program runs, it will create a `systemconfig.json` file. This file should be updated with the necessary configuration settings. On subsequent runs, the system will start and provide you with the address of its web server. You can access this address using a web browser to verify your setup.
 
 ## Remote Operation
-
 If you are operating your Raspberry Pi remotely, you can use **ssh** to log in to the device. 
 
 To manage multiple systems from a single terminal session and ensure they continue running even after disconnecting from the Raspberry Pi, use the **screen** utility. This allows you to create persistent sessions for each system, providing flexibility and reliability for remote operations.
+
+## Cloning the repository
+For a rapid evaluation of the demonstration, on can clone the rpiExec repository with 
+
+```
+git clone https://github.com/sdoque/rpiExec.git
+```
+
+You will then have to change the program files permission to be executable one, which can be done with one command. You want to execute the command from the *rpiExec* directory where the subdirectories are located and target files ending with `_rpi64`, you can use the following command:
+
+```
+find . -type f -name '*_rpi64' -exec chmod +x {} \;
+```
+
+### Explanation:
+- `.`: Specifies the current directory (*rpiExec*) as the starting point for the search.
+- `-type f`: Ensures that only files are targeted, not directories.
+- `-name '*_rpi64'`: Matches files that end with `_rpi64`.
+- `-exec chmod +x {} \;`: Makes each matching file executable.
+
