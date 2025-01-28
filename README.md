@@ -51,10 +51,10 @@ If you are operating your Raspberry Pi remotely, you can use **ssh** to log in t
 To manage multiple systems from a single terminal session and ensure they continue running even after disconnecting from the Raspberry Pi, use the [**screen**](#screen) utility. This allows you to create persistent sessions for each system, providing flexibility and reliability for remote operations.
 
 ## Cloning the repository
-For a rapid evaluation of the demonstration, on can clone the rpiExec repository with 
+For a rapid evaluation of the demonstration, on can clone the latest push of the rpiExec repository with 
 
 ```
-git clone https://github.com/sdoque/rpiExec.git
+git clone --depth 1 https://github.com/sdoque/rpiExec.git
 ```
 
 You then have to change the program files permission to be executable one, which can be done with one command. You want to execute the command from the *rpiExec* directory where the subdirectories are located and target files ending with `_rpi64`, you can use the following command:
