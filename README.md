@@ -105,7 +105,7 @@ It might get a bit annoying to start up all the systems, especially with screen.
 One must make sure that they have executable file permissions (i.e., chmod +x *filename*). The scripts require that one has the same file organization as the repository (and they can be modified to fit other needs). To be fully operational, one would also need a temperature sensor although that is not necessary to evaluate the concepts.
 
 ## tmux
-tumx is a terminal and an alternative to screen. It must be installed on the Raspberry Pi since it is not there by default.
+tumx is a terminal multiplexer and an alternative to screen. It must be installed on the Raspberry Pi since it is not there by default.
 ```
 sudo apt update
 sudo apt install tmux
