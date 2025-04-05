@@ -45,9 +45,9 @@ There are two scripts that start and stop respectively the systems to demonstrat
 
 ## Remote Operation
 
-If you are operating your Raspberry Pi remotely, you can use **ssh** to log in to the device.
+If you are operating your Raspberry Pi remotely (e.g., from your laptop), you can use **ssh** to log in to the device.
 
-To manage multiple systems from a single terminal session and ensure they continue running even after disconnecting from the Raspberry Pi, use the [**screen**](#screen) utility. This allows you to create persistent sessions for each system, providing flexibility and reliability for remote operations.
+To manage multiple systems from a single terminal session and ensure they continue running even after disconnecting from the Raspberry Pi, use the [**screen**](#screen) utility or the [**tmux**](#tmux) utility. This allows you to create persistent sessions for each system, providing flexibility and reliability for remote operations.
 
 ## Cloning the repository
 
@@ -95,7 +95,7 @@ where  ```-S esr```Naming the window session as “esr” creates a new “windo
 
 To detach from this window while leaving it running and return to the terminal, one must first type ```[Ctrl + A]```Subsequently, type the desired text. ```D```To detach, one returns to the original terminal view. To list all the windows created, one types: ```screen -ls```To return to a specific window, one types the window’s title. ```screen -r esr```In the context of the assigned name of the desired window, denoted as *esr*,
 
-## Scripts
+### Scripts
 
 It might get a bit annoying to start up all the systems, especially with screen. One can then use the two scripts found in the repository:
 
@@ -103,3 +103,19 @@ It might get a bit annoying to start up all the systems, especially with screen.
 - stopClimateControl.sh
 
 One must make sure that they have executable file permissions (i.e., chmod +x *filename*). The scripts require that one has the same file organization as the repository (and they can be modified to fit other needs). To be fully operational, one would also need a temperature sensor although that is not necessary to evaluate the concepts.
+
+## tmux
+tumx is a terminal and an alternative to screen. It must be installed on the Raspberry Pi since it is not there by default.
+```
+sudo apt update
+sudo apt install tmux
+```
+
+To move between panes press ```Ctrl+b``` and then use the arrow key in the direction of the desired pane.
+
+### Scripts
+
+There are three scripts to use tmux.
+- setupTmux.sh, which setups the session, window, and panes.
+- startTmuxSystems.sh, which starts the systems across the different panes.
+- stopTmuxSystems.sh, which shuts systems down and 5 seconds later kills the tmux session.
