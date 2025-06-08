@@ -57,7 +57,15 @@ For a rapid evaluation of the demonstration, on can clone the latest push of the
 git clone --depth 1 https://github.com/sdoque/rpiExec.git
 ```
 
-You then have to change the program files permission to be executable one, which can be done with one command. You want to execute the command from the *rpiExec* directory where the subdirectories are located and target files ending with `_rpi64`, you can use the following command:
+If you have already cloned the repository, you might want to update it to the latest version. You can do that with
+
+```
+cd rpiExec
+git fetch --depth=1
+git reset --hard origin/main
+```
+
+The programs should be executable, but if for some odd reason they are not you will then have to change the program files permission to be executable one, which can be done with one command. You want to execute the command from the *rpiExec* directory where the subdirectories are located and target files ending with `_rpi64`, you can use the following command:
 
 ``` bash
 find . -type f -name '*_rpi64' -exec chmod +x {} \;
@@ -102,7 +110,7 @@ It might get a bit annoying to start up all the systems, especially with screen.
 - startClimateControl.sh
 - stopClimateControl.sh
 
-One must make sure that they have executable file permissions (i.e., chmod +x *filename*). The scripts require that one has the same file organization as the repository (and they can be modified to fit other needs). To be fully operational, one would also need a temperature sensor although that is not necessary to evaluate the concepts.
+**One must make sure that they have executable file permissions (i.e., chmod +x *filename*).** The scripts require that one has the same file organization as the repository (and they can be modified to fit other needs). To be fully operational, one would also need a temperature sensor although that is not necessary to evaluate the concepts.
 
 ## tmux
 tumx is a terminal multiplexer and an alternative to screen. It must be installed on the Raspberry Pi since it is not there by default.
