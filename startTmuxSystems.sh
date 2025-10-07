@@ -18,7 +18,7 @@ tmux send-keys -t $SESSION:0.3 'cd ~/rpiExec/orchestrator && ./orchestrator_rpi6
 tmux send-keys -t $SESSION:0.4 'cd ~/rpiExec/ds18b20 && ./ds18b20_rpi64' C-m
 
 # Parallax in pane 0.5
-tmux send-keys -t $SESSION:0.5 'cd ~/rpiExec/parallax && ./parallax_rpi64' C-m
+tmux send-keys -t $SESSION:0.5 'cd ~/rpiExec/parallax && sudo ./parallax_rpi64' C-m
 
 # Thermostat in pane 0.6
 tmux send-keys -t $SESSION:0.6 'cd ~/rpiExec/thermostat && ./thermostat_rpi64' C-m
